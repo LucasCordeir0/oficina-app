@@ -13,4 +13,15 @@ const db = new sqlite3.Database(dbPath, (err) =>{
     }
 });
 
+db.serialize(() => {
+    db.run(`
+        CREATE TABLE IF NOT EXISTS clientes (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nome TEXT NOT NULL,
+        telefone TEXT NOT NULL,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        )
+    `);
+});
+
 module.exports = db;
