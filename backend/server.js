@@ -1,9 +1,11 @@
+const db = require('./database/db');
+
 const express = require('express');
 
 const app = express();
 
 app.get('/', (req, res) => {
-    res.send('Servidor da Oficina app está rodando 🚗');
+    res.send('Servidor da Oficina app está rodando');
 
 });
 
